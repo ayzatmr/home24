@@ -10,7 +10,7 @@ import org.junit.Test;
 /**
  * Created by Ayzat on 20.12.2016.
  */
-public class Smoods extends AbstractSeleniumTest {
+public class SmoodsTest extends AbstractSeleniumTest {
 
     private static int quantity = 2;
 
@@ -48,10 +48,11 @@ public class Smoods extends AbstractSeleniumTest {
         //select items
         smoodPage.selectQuantity(quantity);
 
+        // add items to basket
         smoodPage.addToBasketAndContinueShopping();
         int newAmountOfItemsInBasket = smoodPage.getAmountOfItemsInBasket();
+
+        //check if items has been added
         Assert.assertTrue("Total sum is incorrect", newAmountOfItemsInBasket == quantity+1);
-
     }
-
 }
